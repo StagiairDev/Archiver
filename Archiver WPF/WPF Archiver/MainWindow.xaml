@@ -1,0 +1,62 @@
+﻿<Window x:Class="BestandsArchivering.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Bestands Archiver" Height="450" Width="700"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Bronmap -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.ColumnSpan="2">
+            <Label Content="Bronmap:" VerticalAlignment="Center" Width="80"/>
+            <TextBox x:Name="txtSourcePath" Width="400" IsReadOnly="True" Margin="5,0"/>
+            <Button Content="Bladeren..." Click="BtnSelectSource_Click" Margin="5,0" Width="80"/>
+        </StackPanel>
+
+        <!-- Doelmap -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10" Grid.ColumnSpan="2">
+            <Label Content="Doelmap:" VerticalAlignment="Center" Width="80"/>
+            <TextBox x:Name="txtTargetPath" Width="400" IsReadOnly="True" Margin="5,0"/>
+            <Button Content="Bladeren..." Click="BtnSelectTarget_Click" Margin="5,0" Width="80"/>
+        </StackPanel>
+
+        <!-- Info over archiveringsbeleid -->
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,10" TextWrapping="Wrap"
+                 Text="Bestanden ouder dan 2 jaar zullen automatisch worden verplaatst."
+                 FontStyle="Italic"/>
+
+        <!-- Actieknop en progress in één rij -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="Verplaats bestanden" Click="BtnMoveFiles_Click" 
+                   Padding="5" Width="120" HorizontalAlignment="Left"/>
+            <ProgressBar x:Name="progressBar" Width="200" Height="20" Margin="10,0,0,0" 
+                        Minimum="0" Maximum="100" Visibility="Collapsed"/>
+        </StackPanel>
+
+        <!-- Log output -->
+        <ListBox Grid.Row="4" x:Name="lstLogs" Margin="0,10,0,0" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Statusbalk -->
+        <StatusBar Grid.Row="5" Grid.ColumnSpan="2" Background="#FFF0F0F0">
+            <StatusBarItem>
+                <TextBlock x:Name="txtStatus" Text="Klaar"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
