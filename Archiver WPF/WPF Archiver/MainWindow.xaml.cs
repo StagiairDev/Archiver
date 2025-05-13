@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
+using Forms = System.Windows.Forms;
 
 namespace BestandsArchivering
 {
@@ -10,66 +11,109 @@ namespace BestandsArchivering
         public MainWindow()
         {
             InitializeComponent();
+            dpCutoffDate.SelectedDate = DateTime.Today.AddYears(-2); // Standaardwaarde
         }
 
         private void BtnSelectSource_Click(object sender, RoutedEventArgs e)
         {
-            using var dialog = new FolderBrowserDialog();
-            dialog.Description = "Selecteer de bronmap";
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            using (var dialog = new Forms.FolderBrowserDialog())
             {
-                txtSourcePath.Text = dialog.SelectedPath;
+                if (dialog.ShowDialog() == Forms.DialogResult.OK)
+                {
+                    txtSourcePath.Text = dialog.SelectedPath;
+                    lstLogs.Items.Add($"Bronmap geselecteerd: {dialog.SelectedPath}");
+                }
             }
         }
 
         private void BtnSelectTarget_Click(object sender, RoutedEventArgs e)
         {
-            using var dialog = new FolderBrowserDialog();
-            dialog.Description = "Selecteer de doelmap";
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            using (var dialog = new Forms.FolderBrowserDialog())
             {
-                txtTargetPath.Text = dialog.SelectedPath;
+                if (dialog.ShowDialog() == Forms.DialogResult.OK)
+                {
+                    txtTargetPath.Text = dialog.SelectedPath;
+                    lstLogs.Items.Add($"Doelmap geselecteerd: {dialog.SelectedPath}");
+                }
             }
         }
 
         private void BtnMoveFiles_Click(object sender, RoutedEventArgs e)
         {
-            lstLogs.Items.Clear();
-            txtStatus.Text = "Bezig met verplaatsen...";
-
-            string sourcePath = txtSourcePath.Text;
-            string targetPath = txtTargetPath.Text;
-            DateTime cutoffDate = DateTime.Today.AddYears(-2); // Vaste cutoff van 2 jaar
-
-            if (!Directory.Exists(sourcePath))
+            if (dpCutoffDate.SelectedDate == null)
             {
-                lstLogs.Items.Add("Bronmap bestaat niet.");
-                txtStatus.Text = "Fout - bronmap bestaat niet";
+                lstLogs.Items.Add("Selecteer een geldige datum!");
                 return;
             }
 
-            if (!Directory.Exists(targetPath))
+            lstLogs.Items.Add("=== ARCHIVERING START ===");
+            txtStatus.Text = "Bezig met verplaatsen...";
+            progressBar.Visibility = Visibility.Visible;
+            progressBar.Value = 0;
+
+            string sourcePath = txtSourcePath.Text;
+            string targetPath = txtTargetPath.Text;
+            DateTime cutoffDate = dpCutoffDate.SelectedDate.Value;
+
+            if (!ValidatePaths(sourcePath, targetPath)) return;
+
+            try
             {
-                try
+                string[] allFiles = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
+                ProcessFiles(allFiles, sourcePath, targetPath, cutoffDate);
+            }
+            catch (Exception ex)
+            {
+                lstLogs.Items.Add($"Ernstige fout: {ex.Message}");
+                txtStatus.Text = "Ernstige fout opgetreden";
+            }
+            finally
+            {
+                progressBar.Visibility = Visibility.Collapsed;
+                lstLogs.Items.Add("=== ARCHIVERING VOLTOOID ===");
+                lstLogs.ScrollIntoView(lstLogs.Items[lstLogs.Items.Count - 1]);
+            }
+        }
+
+        private bool ValidatePaths(string sourcePath, string targetPath)
+        {
+            if (string.IsNullOrWhiteSpace(sourcePath) || !Directory.Exists(sourcePath))
+            {
+                lstLogs.Items.Add("Fout: Selecteer een geldige bronmap!");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(targetPath))
+            {
+                lstLogs.Items.Add("Fout: Selecteer een doelmap!");
+                return false;
+            }
+
+            try
+            {
+                if (!Directory.Exists(targetPath))
                 {
                     Directory.CreateDirectory(targetPath);
                     lstLogs.Items.Add($"Doelmap aangemaakt: {targetPath}");
                 }
-                catch (Exception ex)
-                {
-                    lstLogs.Items.Add($"FOUT: Kon doelmap niet aanmaken: {ex.Message}");
-                    txtStatus.Text = "Fout - kon doelmap niet aanmaken";
-                    return;
-                }
+                return true;
             }
-
-            int filesMoved = 0;
-            int filesSkipped = 0;
-            int errors = 0;
-
-            try
+            catch (Exception ex)
             {
-                foreach (string filePath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+                lstLogs.Items.Add($"Fout bij aanmaken doelmap: {ex.Message}");
+                return false;
+            }
+        }
+
+        private void ProcessFiles(string[] allFiles, string sourcePath, string targetPath, DateTime cutoffDate)
+        {
+            int totalFiles = allFiles.Length;
+            int filesMoved = 0, filesSkipped = 0, errors = 0;
+
+            for (int i = 0; i < totalFiles; i++)
+            {
+                string filePath = allFiles[i];
+                try
                 {
                     DateTime fileDate = File.GetLastWriteTime(filePath);
 
@@ -79,40 +123,35 @@ namespace BestandsArchivering
                         string destinationPath = Path.Combine(targetPath, relativePath);
                         string destinationDir = Path.GetDirectoryName(destinationPath);
 
-                        try
+                        if (!Directory.Exists(destinationDir))
                         {
-                            if (!Directory.Exists(destinationDir))
-                            {
-                                Directory.CreateDirectory(destinationDir);
-                            }
-
-                            if (File.Exists(destinationPath))
-                            {
-                                lstLogs.Items.Add($"Bestand bestaat al: {relativePath} - overgeslagen");
-                                filesSkipped++;
-                                continue;
-                            }
-
-                            File.Move(filePath, destinationPath);
-                            lstLogs.Items.Add($"Verplaatst: {relativePath}");
-                            filesMoved++;
+                            Directory.CreateDirectory(destinationDir);
+                            lstLogs.Items.Add($"Map aangemaakt: {Path.GetDirectoryName(relativePath)}");
                         }
-                        catch (Exception ex)
+
+                        if (File.Exists(destinationPath))
                         {
-                            lstLogs.Items.Add($"FOUT bij {relativePath}: {ex.Message}");
-                            errors++;
+                            lstLogs.Items.Add($"[OVERGESLAGEN] {relativePath} (bestaat al)");
+                            filesSkipped++;
+                            continue;
                         }
+
+                        File.Move(filePath, destinationPath);
+                        lstLogs.Items.Add($"[VERPLAATST] {relativePath}");
+                        filesMoved++;
                     }
                 }
+                catch (Exception ex)
+                {
+                    lstLogs.Items.Add($"[FOUT] {Path.GetFileName(filePath)}: {ex.Message}");
+                    errors++;
+                }
 
-                lstLogs.Items.Add($"Klaar! Verplaatst: {filesMoved}, Overgeslagen: {filesSkipped}, Fouten: {errors}");
-                txtStatus.Text = $"Klaar - Verplaatst: {filesMoved}, Overgeslagen: {filesSkipped}, Fouten: {errors}";
+                progressBar.Value = (i + 1) * 100 / totalFiles;
             }
-            catch (Exception ex)
-            {
-                lstLogs.Items.Add($"Ernstige fout: {ex.Message}");
-                txtStatus.Text = "Ernstige fout opgetreden";
-            }
+
+            txtStatus.Text = $"Klaar - Verplaatst: {filesMoved}, Overgeslagen: {filesSkipped}, Fouten: {errors}";
+            lstLogs.Items.Add($"Resultaat: {filesMoved} verplaatst, {filesSkipped} overgeslagen, {errors} fouten");
         }
     }
 }

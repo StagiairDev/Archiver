@@ -1,10 +1,11 @@
 ﻿<Window x:Class="BestandsArchivering.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Bestands Archiver" Height="450" Width="700"
+        Title="Bestands Archiver" Height="500" Width="800"
         WindowStartupLocation="CenterScreen">
-    <Grid Margin="10">
+    <Grid Margin="15">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -12,50 +13,52 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <!-- Bronmap -->
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.ColumnSpan="2">
-            <Label Content="Bronmap:" VerticalAlignment="Center" Width="80"/>
-            <TextBox x:Name="txtSourcePath" Width="400" IsReadOnly="True" Margin="5,0"/>
-            <Button Content="Bladeren..." Click="BtnSelectSource_Click" Margin="5,0" Width="80"/>
-        </StackPanel>
+        <Label Content="Bronmap:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,5"/>
+        <TextBox x:Name="txtSourcePath" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Margin="0,0,5,5"/>
+        <Button x:Name="btnSelectSource" Content="..." Click="BtnSelectSource_Click" 
+                Grid.Row="0" Grid.Column="2" Width="30" Margin="0,0,0,5"/>
 
         <!-- Doelmap -->
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10" Grid.ColumnSpan="2">
-            <Label Content="Doelmap:" VerticalAlignment="Center" Width="80"/>
-            <TextBox x:Name="txtTargetPath" Width="400" IsReadOnly="True" Margin="5,0"/>
-            <Button Content="Bladeren..." Click="BtnSelectTarget_Click" Margin="5,0" Width="80"/>
-        </StackPanel>
+        <Label Content="Doelmap:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,5"/>
+        <TextBox x:Name="txtTargetPath" Grid.Row="1" Grid.Column="1" IsReadOnly="True" Margin="0,0,5,5"/>
+        <Button x:Name="btnSelectTarget" Content="..." Click="BtnSelectTarget_Click" 
+                Grid.Row="1" Grid.Column="2" Width="30" Margin="0,0,0,5"/>
 
-        <!-- Info over archiveringsbeleid -->
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,10" TextWrapping="Wrap"
-                 Text="Bestanden ouder dan 2 jaar zullen automatisch worden verplaatst."
-                 FontStyle="Italic"/>
+        <!-- Datum selectie -->
+        <Label Content="Verplaats bestanden ouder dan:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,10"/>
+        <DatePicker x:Name="dpCutoffDate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="0,0,0,10"/>
 
-        <!-- Actieknop en progress in één rij -->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,10">
-            <Button Content="Verplaats bestanden" Click="BtnMoveFiles_Click" 
-                   Padding="5" Width="120" HorizontalAlignment="Left"/>
-            <ProgressBar x:Name="progressBar" Width="200" Height="20" Margin="10,0,0,0" 
-                        Minimum="0" Maximum="100" Visibility="Collapsed"/>
-        </StackPanel>
+        <!-- Actieknop -->
+        <Button x:Name="btnMoveFiles" Content="Verplaats bestanden" Click="BtnMoveFiles_Click" 
+                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Padding="10,5" Margin="0,0,0,15" FontWeight="Bold"/>
+
+        <!-- Log header -->
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Background="#FFDDDDDD" Padding="5,3" CornerRadius="3,3,0,0">
+            <TextBlock Text="Activiteitenlog" FontWeight="Bold"/>
+        </Border>
 
         <!-- Log output -->
-        <ListBox Grid.Row="4" x:Name="lstLogs" Margin="0,10,0,0" Grid.ColumnSpan="2">
+        <ListBox x:Name="lstLogs" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,5" BorderThickness="0,0,0,1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="2"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <!-- Statusbalk -->
-        <StatusBar Grid.Row="5" Grid.ColumnSpan="2" Background="#FFF0F0F0">
+        <StatusBar Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Background="#FFEEEEEE">
             <StatusBarItem>
-                <TextBlock x:Name="txtStatus" Text="Klaar"/>
+                <ProgressBar x:Name="progressBar" Width="200" Height="16" Minimum="0" Maximum="100" Visibility="Collapsed"/>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock x:Name="txtStatus" Text="Klaar" Margin="5,0"/>
             </StatusBarItem>
         </StatusBar>
     </Grid>
