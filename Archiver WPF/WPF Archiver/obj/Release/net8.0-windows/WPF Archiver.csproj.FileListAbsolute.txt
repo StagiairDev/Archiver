@@ -7,3 +7,20 @@ C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\n
 C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver.AssemblyInfoInputs.cache
 C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver.AssemblyInfo.cs
 C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver.csproj.CoreCompileInputs.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\WPF Archiver.exe
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\WPF Archiver.deps.json
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\WPF Archiver.runtimeconfig.json
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\WPF Archiver.pdb
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\Ookii.Dialogs.Wpf.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\System.Reactive.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\System.Reactive.Windows.Forms.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\System.Windows.Forms.Ribbon35.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver.csproj.AssemblyReference.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Arch.9C21FED9.Up2Date
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\refint\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver.pdb
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver.genruntimeconfig.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\ref\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\WPF Archiver_Content.g.cs

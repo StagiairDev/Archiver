@@ -1,0 +1,9 @@
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver.exe
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver.deps.json
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver.runtimeconfig.json
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver.pdb
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\Ookii.Dialogs.Wpf.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\System.Reactive.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\System.Reactive.Windows.Forms.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\System.Windows.Forms.Ribbon35.dll
