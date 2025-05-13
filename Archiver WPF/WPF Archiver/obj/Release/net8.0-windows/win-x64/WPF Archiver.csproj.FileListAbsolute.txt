@@ -1,0 +1,26 @@
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\WPF Archiver.exe
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\WPF Archiver.deps.json
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\WPF Archiver.runtimeconfig.json
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\WPF Archiver.pdb
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\Ookii.Dialogs.Wpf.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\System.Reactive.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\System.Reactive.Windows.Forms.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\bin\Release\net8.0-windows\win-x64\System.Windows.Forms.Ribbon35.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.csproj.AssemblyReference.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\MainWindow.baml
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\MainWindow.g.cs
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\App.g.cs
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver_MarkupCompile.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.g.resources
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.AssemblyInfoInputs.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.AssemblyInfo.cs
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.csproj.CoreCompileInputs.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Arch.9C21FED9.Up2Date
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\refint\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.pdb
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver.genruntimeconfig.cache
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\ref\WPF Archiver.dll
+C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Release\net8.0-windows\win-x64\WPF Archiver_Content.g.cs
