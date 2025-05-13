@@ -1,9 +1,0 @@
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\MainWindow.baml
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\MainWindow.g.cs
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\App.g.cs
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\WPF Archiver_MarkupCompile.cache
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\WPF Archiver.g.resources
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\WPF Archiver.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\WPF Archiver.AssemblyInfoInputs.cache
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\WPF Archiver.AssemblyInfo.cs
-C:\Users\sigur\OneDrive\Documenten\Stage\Archiver WPF\WPF Archiver\obj\Debug\net8.0-windows\WPF Archiver.csproj.CoreCompileInputs.cache
